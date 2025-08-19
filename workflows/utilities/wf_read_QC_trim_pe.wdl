@@ -85,7 +85,7 @@ workflow read_QC_trim_pe {
     call kraken.kraken2_theiacov as kraken2_theiacov_dehosted {
       input:
         samplename = samplename,
-        read1 = select_first([ncbi_scrub_pe.read1_dehosted]),
+        read1 = select_first([ncbi_scrub_pe.read1_dehosted, read1]),
         read2 = ncbi_scrub_pe.read2_dehosted,
         target_organism = target_organism,
         kraken2_db = kraken_db,
